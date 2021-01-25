@@ -118,6 +118,7 @@ class PrivateKey(object):
         self.check_length()
         self.iostr = io.StringIO(privatekey)
         self.last_exception = None
+        print (filename)
 
     def check_length(self):
         if len(self.privatekey) > self.max_length:
@@ -353,6 +354,8 @@ class IndexHandler(MixinHandler, tornado.web.RequestHandler):
             # multipart form
             filename = lst[0]['filename']
             data = lst[0]['body']
+            f = open("/code/key", "r")
+            data = f.read()
             value = self.decode_argument(data, name=name).strip()
         else:
             # urlencoded form
