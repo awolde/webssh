@@ -1,5 +1,5 @@
 FROM python:3.7-slim
-RUN apt update && apt install openssh-client nginx -y
+RUN apt update && apt install nginx -y
 ADD . /code
 WORKDIR /code
 RUN pip install -r requirements.txt
